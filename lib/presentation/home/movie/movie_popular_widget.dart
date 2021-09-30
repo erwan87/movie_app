@@ -14,7 +14,7 @@ class _MoviePopularState extends State<MoviePopular> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 270.0,
+      height: 220.0,
       padding: EdgeInsets.only(left: 10.0),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -23,7 +23,6 @@ class _MoviePopularState extends State<MoviePopular> {
           return Padding(
             padding: EdgeInsets.only(
                 top: 10.0,
-                bottom: 10.0,
                 right: 15.0
               ),
               child: GestureDetector(

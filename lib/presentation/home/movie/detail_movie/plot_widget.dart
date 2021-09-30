@@ -46,11 +46,11 @@ class _ThePlotState extends State<ThePlot> {
               textAlign: TextAlign.justify,
               text: TextSpan(
                 text: descText,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white, fontSize: 12),
                 children: <TextSpan>[
                   TextSpan(text: ' See More',
                   style: TextStyle(
-                      color: Colors.red, fontSize: 18),
+                      color: Colors.red, fontSize: 12),
                       recognizer: TapGestureRecognizer() ..onTap = () {
                         _showDialog();
                       },

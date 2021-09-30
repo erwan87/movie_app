@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import 'detail_movie_widget.dart';
+
 class MovieSoon extends StatefulWidget {
   MovieSoon({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class _MovieSoonState extends State<MovieSoon> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 270.0,
+      height: 225.0,
       padding: EdgeInsets.only(left: 10.0),
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -27,7 +29,9 @@ class _MovieSoonState extends State<MovieSoon> {
               ),
               child: GestureDetector(
                 onTap: () {
-                  print('film');
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(builder: (context)  => DetailScreen())
+                  );
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

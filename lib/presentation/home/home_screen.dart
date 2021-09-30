@@ -5,6 +5,7 @@ import 'package:movie_app/presentation/home/movie/movie_popular_widget.dart';
 import 'movie/movie_popular_title_widget.dart';
 import 'movie/movie_soon_title_widget.dart';
 import 'movie/movie_soon_widget.dart';
+import 'movie/watched_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,6 +17,7 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.black,
       body: ListView(
         children: [
+          AlreadyWatch(),
           PopularTitle(),
           MoviePopular(),
           SoonTitle(),

@@ -6,6 +6,7 @@ import 'package:movie_app/presentation/home/movie/detail_movie/plot_title_widget
 import 'package:movie_app/presentation/home/movie/player/movie_player_widget.dart';
 import 'detail_movie/cost_title_widget.dart';
 import 'detail_movie/plot_widget.dart';
+import 'detail_movie/trailer_movie_widget.dart';
 import 'detail_movie/trailer_title_widget.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -31,7 +32,7 @@ class _DetailScreenState extends State<DetailScreen> {
           TheCost(),
           SizedBox(height: 5,),
           TheTrailerTitle(),
-          // Trailer(),
+          TrailerMovie(),
         ],
       ),
     );

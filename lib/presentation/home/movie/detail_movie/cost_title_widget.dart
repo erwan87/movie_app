@@ -17,7 +17,7 @@ class _ThePlotTitleState extends State<ThePlotTitle> {
         children: [
           
           Text('The Plot',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.left,
           ),
 
