@@ -15,13 +15,13 @@ UI Movie Application
 ### Screenshoot
 
 Login Screen
-https://user-images.githubusercontent.com/22274879/135392057-0079b59d-b03b-4ece-8ae5-79d62666c684.png
+![image]https://user-images.githubusercontent.com/22274879/135392057-0079b59d-b03b-4ece-8ae5-79d62666c684.png
 
 Home Screen
-https://user-images.githubusercontent.com/22274879/135392104-540ef9b5-05e3-45eb-b142-ab11faec2528.png
+![image]https://user-images.githubusercontent.com/22274879/135392104-540ef9b5-05e3-45eb-b142-ab11faec2528.png
 
 Detail Screen
-https://user-images.githubusercontent.com/22274879/135392073-c7245ac0-11aa-437d-9305-c3870de9fa9f.png
+![image]https://user-images.githubusercontent.com/22274879/135392073-c7245ac0-11aa-437d-9305-c3870de9fa9f.png
 
 Profile Screen
-https://user-images.githubusercontent.com/22274879/135392149-28d7972c-7980-4c05-b266-38ec33e2a1e8.png
+![image]https://user-images.githubusercontent.com/22274879/135392149-28d7972c-7980-4c05-b266-38ec33e2a1e8.png
