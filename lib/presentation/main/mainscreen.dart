@@ -17,6 +17,10 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   late SelectedBody selectedBody;
+  bool isPressedHome      = false;
+  bool isPressedSearch    = false;
+  bool isPressedFavorite  = false;
+  bool isPressedProfile   = false;
 
   @override
   void initState() {
@@ -39,15 +43,39 @@ class _MainScreenState extends State<MainScreen> {
             switch (selectedIndex) {
               case 0:
                 selectedBody = SelectedBody.home;
+                setState(() {
+                  isPressedHome     = !isPressedHome;
+                  isPressedSearch   = false;
+                  isPressedFavorite = false;
+                  isPressedProfile  = false;
+                });
                 break;
               case 1:
                 selectedBody = SelectedBody.search;
+                setState(() {
+                  isPressedHome     = false;
+                  isPressedSearch   = !isPressedSearch;
+                  isPressedFavorite = false;
+                  isPressedProfile  = false;
+                });
                 break;
               case 2:
                 selectedBody = SelectedBody.reels;
+                setState(() {
+                  isPressedHome     = false;
+                  isPressedSearch   = false;
+                  isPressedFavorite = !isPressedFavorite;
+                  isPressedProfile  = false;
+                });
                 break;
               case 3:
                 selectedBody = SelectedBody.profile;
+                setState(() {
+                  isPressedHome     = false;
+                  isPressedSearch   = false;
+                  isPressedFavorite = false;
+                  isPressedProfile  = !isPressedProfile;
+                });
                 break;
               default:
                 selectedBody = SelectedBody.home;
@@ -57,25 +85,25 @@ class _MainScreenState extends State<MainScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(ICON_HOME,color: Colors.white,),
+            icon: SvgPicture.asset(ICON_HOME,color: isPressedHome ? Colors.red : Colors.white.withOpacity(0.3),),
             label: 'Home',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(ICON_SEARCH, color: Colors.white),
+            icon: SvgPicture.asset(ICON_SEARCH, color: isPressedSearch ? Colors.red : Colors.white.withOpacity(0.3)),
             label: 'Search',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border_outlined,
-              color: Colors.white,
+              color: isPressedFavorite ? Colors.red : Colors.white.withOpacity(0.3),
             ),
             label: 'Shop',
             backgroundColor: Colors.black,
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.switch_account_outlined,
-              color: Colors.white,
+              icon: Icon(Icons.person,
+              color: isPressedProfile ? Colors.red : Colors.white.withOpacity(0.3),
             ),
             label: 'Profile',
             backgroundColor: Colors.black,
