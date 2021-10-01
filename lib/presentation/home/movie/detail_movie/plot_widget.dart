@@ -10,7 +10,7 @@ class ThePlot extends StatefulWidget {
 }
 
 class _ThePlotState extends State<ThePlot> {
-  String descText = "Eight thieves take hostages and lock themselves up in the Spainsh Royal Mint while a crime boss manipulates the police to cary out his plan.";
+  String descText       = "Eight thieves take hostages and lock themselves up in the Spainsh Royal Mint while a crime boss manipulates the police to cary out his plan.";
   bool descTextShowFlag = false;
 
   void _showDialog() {
@@ -42,22 +42,18 @@ class _ThePlotState extends State<ThePlot> {
       padding: EdgeInsets.only(bottom: 10),
       child: Column(
         children: [
-          RichText(
-              textAlign: TextAlign.justify,
-              text: TextSpan(
-                text: descText,
-                style: TextStyle(color: Colors.white, fontSize: 12),
-                children: <TextSpan>[
-                  TextSpan(text: ' See More',
-                  style: TextStyle(
-                      color: Colors.red, fontSize: 12),
-                      recognizer: TapGestureRecognizer() ..onTap = () {
-                        _showDialog();
-                      },
-                  ),
-                ],
-              ),
-            ),
+          Text(descText, style: TextStyle(color: Colors.white),maxLines: descTextShowFlag ? 8 : 2,textAlign: TextAlign.justify),
+          InkWell(
+            onTap: (){ 
+              setState(() { descTextShowFlag = !descTextShowFlag; });
+            },
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              descTextShowFlag ? Text("",style: TextStyle(color: Colors.blue),) :  Text("See More", style: TextStyle(color: Colors.red))
+            ],
+          ),
+          ),
         ],
       ),
     );

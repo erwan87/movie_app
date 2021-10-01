@@ -5,7 +5,7 @@ import 'package:movie_app/presentation/home/home_screen.dart';
 import 'package:movie_app/presentation/profile/profile_screen.dart';
 import 'package:movie_app/values/assets.dart';
 
-enum SelectedBody { home, search, reels, shop, profile }
+enum SelectedBody { home, search, favorite, profile }
 
 class MainScreen extends StatefulWidget {
   static const String routeName = '/MainScreen';
@@ -27,6 +27,7 @@ class _MainScreenState extends State<MainScreen> {
     super.initState();
 
     selectedBody = SelectedBody.home;
+    isPressedHome= true;
   }
 
   @override
@@ -60,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
                 });
                 break;
               case 2:
-                selectedBody = SelectedBody.reels;
+                selectedBody = SelectedBody.favorite;
                 setState(() {
                   isPressedHome     = false;
                   isPressedSearch   = false;
@@ -79,6 +80,12 @@ class _MainScreenState extends State<MainScreen> {
                 break;
               default:
                 selectedBody = SelectedBody.home;
+                  setState(() {
+                    isPressedHome     = !isPressedHome;
+                    isPressedSearch   = false;
+                    isPressedFavorite = false;
+                    isPressedProfile  = false;
+                  });
                 break;
             }
           });
@@ -119,7 +126,7 @@ class _MainScreenState extends State<MainScreen> {
         return HomeScreen();
       case SelectedBody.search:
         return Center(child: Text('Search Screen', style: TextStyle(color: Colors.red),));
-      case SelectedBody.reels:
+      case SelectedBody.favorite:
         return Center(child: Text('Favorite Screen', style: TextStyle(color: Colors.red),));
       case SelectedBody.profile:
         return ProfileScreen();

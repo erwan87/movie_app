@@ -23,7 +23,8 @@ class AppDetail extends StatelessWidget implements PreferredSizeWidget {
         ),
       title: Row(
         children: [
-          Expanded(
+          Container(
+            width: 230,
             child: Container(
               alignment: Alignment.center,
               child: Text('La Casa de Papel', style: TextStyle(fontSize: 20),),
