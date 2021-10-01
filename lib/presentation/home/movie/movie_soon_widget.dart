@@ -15,8 +15,7 @@ class _MovieSoonState extends State<MovieSoon> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 225.0,
-      padding: EdgeInsets.only(left: 10.0),
+      height: 220.0,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: 5,
@@ -24,8 +23,6 @@ class _MovieSoonState extends State<MovieSoon> {
           return Padding(
             padding: EdgeInsets.only(
                 top: 10.0,
-                bottom: 10.0,
-                right: 15.0
               ),
               child: GestureDetector(
                 onTap: () {
@@ -75,7 +72,7 @@ class _MovieSoonState extends State<MovieSoon> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
                           RatingBar.builder(
-                            itemSize: 8.0,
+                            itemSize: 12.0,
                             initialRating: 3.5,
                             minRating: 1,
                             direction: Axis.horizontal,
@@ -90,8 +87,6 @@ class _MovieSoonState extends State<MovieSoon> {
                               print(rating);
                             },
                           ),
-
-                          SizedBox(width: 5,),
 
                           Text('(55)',
                           style: TextStyle(color: Colors.white),

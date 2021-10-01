@@ -9,25 +9,28 @@ class AppMain extends StatelessWidget implements PreferredSizeWidget {
   @override
   Size get preferredSize => Size.fromHeight(toolbarHeight);
   Widget build(BuildContext context) {
-    return AppBar(
-      title: RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
+    return DefaultTabController(
+      initialIndex: 1,
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          bottom: const TabBar(
+            tabs: <Widget>[
+              Tab(
                 text: 'All',
-                style: TextStyle(color: Colors.white),
-                children: const <TextSpan>[
-                          TextSpan(
-                            text: ' Film ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                            ),
-                          TextSpan(
-                            text: ' Serials ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                            ),
-                        ],
               ),
-            ),
-      automaticallyImplyLeading: false,
-      backgroundColor: Colors.black,
-      toolbarHeight: toolbarHeight,
+              Tab(
+                text: 'Film',
+              ),
+              Tab(
+                text: 'Serials',
+              ),
+            ],
+          ),
+          backgroundColor: Colors.black,
+          toolbarHeight: toolbarHeight,
+        ),
+      ),
     );
   }
 }

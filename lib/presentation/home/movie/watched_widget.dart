@@ -9,7 +9,7 @@ class AlreadyWatch extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(bottom: 10),
-      height: 180,
+      height: 280,
       color: Colors.black,
       child: Column(
         children: [
@@ -17,8 +17,7 @@ class AlreadyWatch extends StatelessWidget {
             children: [
               Expanded(
                 child: Container(
-                  // width: 20.0,
-                  height: 170.0,
+                  height: 270.0,
                   decoration: new BoxDecoration(
                     shape: BoxShape.rectangle,
                     image: new DecorationImage(
@@ -86,9 +85,11 @@ class AlreadyWatch extends StatelessWidget {
                         ],
                       ),
 
+                      SizedBox(height: 20,),
+
                       Row(
                         children: [
-                          Icon(Icons.play_circle, size:47, color: Colors.red.withOpacity(0.6),),
+                          Icon(Icons.play_circle, size:50, color: Colors.red.withOpacity(0.6),),
                         ],
                       ),
                   ],
