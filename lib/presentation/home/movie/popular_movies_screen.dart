@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/data/movies/model/movie_item_response.dart';
 import 'package:movie_app/data/movies/movie_api_client.dart';
-import 'package:movie_app/presentation/home/movie/detail_movie_widget.dart';
+// import 'package:movie_app/presentation/home/movie/detail_movie_widget.dart';
 import 'package:movie_app/presentation/main/mainscreen.dart';
+import 'package:movie_app/ui/movie_detail_screen.dart';
 
 class PopularMoviesScreen extends StatefulWidget {
   const PopularMoviesScreen({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _PopularMoviesScreenState extends State<PopularMoviesScreen> {
                     onTap: () {
                       Navigator.pushNamed(
                         context,
-                        DetailScreen.routeName,
+                        MovieDetailScreen.routeName,
                         arguments: MovieDetailArguments(
                           movieId: movie.id ?? 0,
                           movieName: movie.title ?? '',

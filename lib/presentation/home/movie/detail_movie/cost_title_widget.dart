@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ThePlotTitle extends StatefulWidget {
-  ThePlotTitle({Key? key}) : super(key: key);
+  final String title;
+  ThePlotTitle({Key? key, required this.title}) : super(key: key);
 
   @override
   _ThePlotTitleState createState() => _ThePlotTitleState();
@@ -16,7 +17,7 @@ class _ThePlotTitleState extends State<ThePlotTitle> {
       child: Row(
         children: [
           
-          Text('The Plot',
+          Text(widget.title,
             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             textAlign: TextAlign.left,
           ),

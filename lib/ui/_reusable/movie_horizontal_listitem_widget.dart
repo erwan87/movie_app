@@ -19,24 +19,24 @@ class MovieHorizontalListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(
-          context,
-          DetailScreen.routeName,
+        // Navigator.pushNamed(
+        //   context,
+        //   DetailScreen.routeName,
           // arguments: MovieDetailArguments(
           // movieId: movieItemResponse.id ?? 0,
           // movieName: movieItemResponse.title ?? '',
           // )
-        );
+        // );
       },
       child: SizedBox(
-        width: 130,
+        width: 140,
         child: Card(
           child: Column(
             children: [
               Expanded(
                 child: CachedNetworkImage(
                   imageUrl: '$IMAGE_BASE_URL${movieItemResponse.posterPath}',
-                  width: 120,
+                  width: 130,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -55,11 +55,11 @@ class MovieHorizontalListItemWidget extends StatelessWidget {
                       ),
 
                       Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           RatingBar.builder(
                             itemSize: 10.0,
-                            initialRating: 3.5,
+                            initialRating: 1.1,
                             minRating: 1,
                             direction: Axis.horizontal,
                             allowHalfRating: true,
@@ -74,13 +74,12 @@ class MovieHorizontalListItemWidget extends StatelessWidget {
                             },
                           ),
 
-                          Text('(55)',
-                          style: TextStyle(color: Colors.black),
-                          textAlign: TextAlign.center,
+                          Text('(${movieItemResponse.voteCount})',
+                          style: TextStyle(color: Colors.black,fontSize: 10),
+                          textAlign: TextAlign.start,
                           ),
                         ],
                       ),
-              // SizedBox(height: 32, child: Text('${movieItemResponse.title}')),
             ],
           ),
         ),

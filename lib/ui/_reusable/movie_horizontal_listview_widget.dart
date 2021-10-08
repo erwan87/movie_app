@@ -20,14 +20,14 @@ class MovieHorizontalListViewWidget extends StatelessWidget {
           return MovieHorizontalListItemWidget(
             movieItemResponse: movieItems[index],
             onTap: () {
-              Navigator.pushNamed(
-                        context,
-                        DetailScreen.routeName,
-                        arguments: MovieDetailArguments(
-                          movieId: movieItems[index].id ?? 0,
-                          movieName: movieItems[index].title ?? '',
-                        ),
-                      );
+            //   Navigator.pushNamed(
+            //             context,
+            //             DetailScreen.routeName,
+            //             arguments: MovieDetailArguments(
+            //               movieId: movieItems[index].id ?? 0,
+            //               movieName: movieItems[index].title ?? '',
+            //             ),
+            //           );
             },
           );
         },
