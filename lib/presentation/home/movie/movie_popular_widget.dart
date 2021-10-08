@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/data/movies/model/movie_item_response.dart';
+import 'package:movie_app/data/movies/movie_api_client.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movie_app/presentation/home/movie/detail_movie_widget.dart';
+import 'package:movie_app/ui/_reusable/movie_horizontal_listview_widget.dart';
 
 class MoviePopular extends StatefulWidget {
   MoviePopular({Key? key}) : super(key: key);
@@ -11,94 +14,118 @@ class MoviePopular extends StatefulWidget {
 }
 
 class _MoviePopularState extends State<MoviePopular> {
+  MovieApiClient _movieApiClient = MovieApiClient();
+  
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 220.0,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: 5,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.only(
-                top: 10.0,
-              ),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context)  => DetailScreen())
-                  );
-                },
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 120.0,
-                      height: 150.0,
-                      decoration: new BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(2.0),
-                      ),
-                      shape: BoxShape.rectangle,
-                      image: new DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage("https://image.tmdb.org/t/p/w300_and_h450_bestv2/8j12tohv1NBZNmpU93f47sAKBbw.jpg"),
-                        )),
-                      ),
-
-                    SizedBox(
-                      height: 10.0,
-                    ),
-
-                    Container(
-                      width: 100,
-                      child: Text(
-                              'Prodigal Son',
-                              maxLines: 2,
-                              style: TextStyle(
-                                height: 1.4,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14.0,
-                              ),
-                          ),
-                      ),
-
-                      SizedBox(
-                        height: 5.0,
-                      ),
-
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          RatingBar.builder(
-                            itemSize: 12.0,
-                            initialRating: 3.5,
-                            minRating: 1,
-                            direction: Axis.horizontal,
-                            allowHalfRating: true,
-                            itemCount: 5,
-                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                            itemBuilder: (context, _) => Icon(
-                              Icons.star,
-                              color: Colors.red,
-                            ),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
-                          ),
-
-                          Text('(55)',
-                          style: TextStyle(color: Colors.white),
-                          textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                  ],
+      child:
+      FutureBuilder<List<MovieItemResponse>?>(
+      future: _movieApiClient.getPopularMovies(),
+      builder: (context, AsyncSnapshot<List<MovieItemResponse>?> snapshot) {
+        if (snapshot.hasData) {
+          if (snapshot.data != null) {
+            List<MovieItemResponse> movies = snapshot.data!;
+            return Column(
+              children: [
+                MovieHorizontalListViewWidget(
+                  movieItems: movies,
                 ),
-              ),
-          );
+              ],
+            );
+          } else {
+            return Text('Error');
+          }
         }
-      ),
+
+        return CircularProgressIndicator();
+      },
+      // ListView.builder(
+      //   scrollDirection: Axis.horizontal,
+      //   itemCount: 5,
+      //   itemBuilder: (context, index) {
+      //     return Padding(
+      //       padding: EdgeInsets.only(
+      //           top: 10.0,
+      //         ),
+      //         child: GestureDetector(
+      //           onTap: () {
+      //             Navigator.of(context).pushReplacement(
+      //               MaterialPageRoute(builder: (context)  => DetailScreen())
+      //             );
+      //           },
+      //           child: Column(
+      //             crossAxisAlignment: CrossAxisAlignment.start,
+      //             children: [
+      //               Container(
+      //                 width: 120.0,
+      //                 height: 150.0,
+      //                 decoration: new BoxDecoration(
+      //                   borderRadius: BorderRadius.all(Radius.circular(2.0),
+      //                 ),
+      //                 shape: BoxShape.rectangle,
+      //                 image: new DecorationImage(
+      //                         fit: BoxFit.cover,
+      //                         image: NetworkImage("https://image.tmdb.org/t/p/w300_and_h450_bestv2/8j12tohv1NBZNmpU93f47sAKBbw.jpg"),
+      //                   )),
+      //                 ),
+
+      //               SizedBox(
+      //                 height: 10.0,
+      //               ),
+
+      //               Container(
+      //                 width: 100,
+      //                 child: Text(
+      //                         'Prodigal Son',
+      //                         maxLines: 2,
+      //                         style: TextStyle(
+      //                           height: 1.4,
+      //                           color: Colors.white,
+      //                           fontWeight: FontWeight.bold,
+      //                           fontSize: 14.0,
+      //                         ),
+      //                     ),
+      //                 ),
+
+      //                 SizedBox(
+      //                   height: 5.0,
+      //                 ),
+
+      //                 Row(
+      //                   crossAxisAlignment: CrossAxisAlignment.center,
+      //                   children: <Widget>[
+      //                     RatingBar.builder(
+      //                       itemSize: 12.0,
+      //                       initialRating: 3.5,
+      //                       minRating: 1,
+      //                       direction: Axis.horizontal,
+      //                       allowHalfRating: true,
+      //                       itemCount: 5,
+      //                       itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+      //                       itemBuilder: (context, _) => Icon(
+      //                         Icons.star,
+      //                         color: Colors.red,
+      //                       ),
+      //                       onRatingUpdate: (rating) {
+      //                         print(rating);
+      //                       },
+      //                     ),
+
+      //                     Text('(55)',
+      //                     style: TextStyle(color: Colors.white),
+      //                     textAlign: TextAlign.center,
+      //                     ),
+      //                   ],
+      //                 ),
+      //             ],
+      //           ),
+      //         ),
+      //     );
+      //   }
+      // ),
+    ),
     );
   }
 }

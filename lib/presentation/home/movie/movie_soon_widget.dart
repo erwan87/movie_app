@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import 'detail_movie_widget.dart';
 
 class MovieSoon extends StatefulWidget {
@@ -26,9 +25,9 @@ class _MovieSoonState extends State<MovieSoon> {
               ),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context)  => DetailScreen())
-                  );
+                  // Navigator.of(context).pushReplacement(
+                  //   MaterialPageRoute(builder: (context)  => DetailScreen())
+                  // );
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

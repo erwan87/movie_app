@@ -9,8 +9,19 @@ import 'detail_movie/plot_widget.dart';
 import 'detail_movie/trailer_movie_widget.dart';
 import 'detail_movie/trailer_title_widget.dart';
 
+class MovieDetailArguments {
+  final int movieId;
+  final String movieName;
+  MovieDetailArguments({
+    required this.movieId,
+    required this.movieName,
+  });
+}
+
 class DetailScreen extends StatefulWidget {
-  DetailScreen({Key? key}) : super(key: key);
+  final MovieDetailArguments args;
+  static const String routeName = '/MovieDetailScreen';
+  DetailScreen({Key? key, required this.args}) : super(key: key);
 
   @override
   _DetailScreenState createState() => _DetailScreenState();
