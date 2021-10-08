@@ -18,7 +18,7 @@ class _MovieDetailBodyState extends State<MovieDetailBody> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<MovieDetailResponse?>(
-      // future: _movieApiClient.getCostDetail(widget.movieId.toString()),
+      future: _movieApiClient.getMovieDetail(widget.movieId.toString()),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           if (snapshot.data != null) {
@@ -28,7 +28,7 @@ class _MovieDetailBodyState extends State<MovieDetailBody> {
               children: [
                 CachedNetworkImage(
                   imageUrl: '$IMAGE_BASE_URL${movie.posterPath}',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.contain,
                   width: double.infinity,
                   height: 150,
                 ),

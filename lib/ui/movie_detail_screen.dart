@@ -32,8 +32,8 @@ class MovieDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             MovieDetailBody(movieId: args.movieId),
-            SizedBox(height: 10,),
-            TheCostTitle(),
+            // SizedBox(height: 10,),
+            // TheCostTitle(),
             // TheCost(),
           ],
         ),

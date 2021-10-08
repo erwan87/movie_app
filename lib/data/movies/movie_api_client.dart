@@ -106,29 +106,29 @@ class MovieApiClient {
     return movieDetail;
   }
 
-  Future<CostResponse?> getCostDetail(String movieId) async {
-    CostResponse? costDetail;
-    try {
-      Response response =
-          await _dio.get('/movie/$movieId/credits?api_key=$API_KEY&language=$LANGUAGE');
+  // Future<CostResponse?> getCostDetail(String movieId) async {
+  //   CostResponse? costDetail;
+  //   try {
+  //     Response response =
+  //         await _dio.get('/movie/$movieId/credits?api_key=$API_KEY&language=$LANGUAGE');
 
-      // CostResponse costResponse =
-      //     CostResponse.fromJson(response.data);
-      // costDetail = CostResponse;
-    } on DioError catch (e) {
-      if (e.response != null) {
-        print('Error: getCostDetail');
-        print('STATUS: ${e.response?.statusCode}');
-        print('DATA: ${e.response?.data}');
-        print('HEADERS: ${e.response?.headers}');
-      } else {
-        print('Unexpected error!');
-        print(e.message);
-      }
-    }
+  //     // CostResponse costResponse =
+  //     //     CostResponse.fromJson(response.data);
+  //     // costDetail = CostResponse;
+  //   } on DioError catch (e) {
+  //     if (e.response != null) {
+  //       print('Error: getCostDetail');
+  //       print('STATUS: ${e.response?.statusCode}');
+  //       print('DATA: ${e.response?.data}');
+  //       print('HEADERS: ${e.response?.headers}');
+  //     } else {
+  //       print('Unexpected error!');
+  //       print(e.message);
+  //     }
+  //   }
 
-    return costDetail;
-  }
+  //   return costDetail;
+  // }
 
   // Future<bool?> rateMovie(
   //     {required String movieId, required double rating}) async {
