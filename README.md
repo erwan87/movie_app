@@ -4,15 +4,19 @@ UI Movie Application
 
 ## Getting Started
 
-- To run this project, Download and extract and then put this source into your text editor(iam used Visual Studio Code)
+- To run this project, download and extract and then put this source into your text editor(i'am use Visual Studio Code)
 - Press F5 To Run Start Debugging
+- username : selangkah@selangkah.org password : admin
 
 ### Requiretment
 - Flutter V 2.2.1
 - Visual Studio Code
 - Android Studio
 
-### Screenshoot
+#### Library
+- soon
+
+#### Screenshoot
 
 Login Screen
 ![image](https://user-images.githubusercontent.com/22274879/135392057-0079b59d-b03b-4ece-8ae5-79d62666c684.png)
