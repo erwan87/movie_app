@@ -23,7 +23,6 @@ class _MovieDetailBodyState extends State<MovieDetailBody> {
         if (snapshot.hasData) {
           if (snapshot.data != null) {
             MovieDetailResponse movie = snapshot.data!;
-
             return Column(
               children: [
                 CachedNetworkImage(
@@ -49,7 +48,6 @@ class _MovieDetailBodyState extends State<MovieDetailBody> {
             return Text('Data movie not found.');
           }
         }
-
         return CircularProgressIndicator();
       },
     );

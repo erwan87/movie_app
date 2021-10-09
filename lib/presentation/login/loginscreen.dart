@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
           "password": password.text
         });
 
-    // Testing email selangkah@selangkah.org password : flutterbatch1
+    // Testing email selangkah@selangkah.org password : admin
     var login = await json.decode(datalogin.body);
     
     if(login['response_status'] == "OK"){
